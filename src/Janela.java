@@ -114,34 +114,41 @@ public class Janela extends javax.swing.JDialog {
 
     private void saidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saidaActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_saidaActionPerformed
 
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
-        int i,R,S,A,B;
-        
+        int R=0,i,A,B,S=0;
         i=valor1.getText().length()-1;
         if (this.opcoes.getSelectedIndex() == 0) { 
             //SOMA
             
-            while(i>0){
-                A=IntegerParseInt(valor1.getText().charAt(i));
-                B=IntegerParseInt(valor2.getText().charAt(i));
+            while(i>=0){
+                 A= Character.getNumericValue(valor1.getText().charAt(i));
+                 B=Character.getNumericValue(valor2.getText().charAt(i));
+                
                 S=A+B+R;
                 R=0;
                 if(S==2){
-                 S=0;
-                 R=1;
-                }
-                if(S==3){
+                    S=0;
+                    R=1;
+                }if(S==3){
                     S=1;
                     R=1;
                 }
-                
-                }
-                
+                i--;
+                saida.setText(  Integer.toString(S) + saida.getText() );
             }
+            if(R!=0){
+                S=R+S;
+                 saida.setText(  Integer.toString(S) + saida.getText() );
+            }
+            
             System.out.println("SOMA");
-        } else {                                      //SUBTRAÇÃO
+        } else {   
+            //SUBTRAÇÃO
+                while(i>=0){
+                }
             System.out.println("SUBTRAÇÃO");
         }
     }//GEN-LAST:event_enterActionPerformed
