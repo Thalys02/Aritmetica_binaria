@@ -56,6 +56,12 @@ public class Janela extends javax.swing.JDialog {
 
         imagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img.png"))); // NOI18N
 
+        valor2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                valor2ActionPerformed(evt);
+            }
+        });
+
         enter.setText("=");
         enter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +126,7 @@ public class Janela extends javax.swing.JDialog {
     private void enterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterActionPerformed
         int R=0,i,A,B,S=0;
         i=valor1.getText().length()-1;
+        saida.setText("");
         if (this.opcoes.getSelectedIndex() == 0) { 
             //SOMA
             
@@ -148,29 +155,24 @@ public class Janela extends javax.swing.JDialog {
             System.out.println("SOMA");
         } else {   
             //SUBTRAÇÃO
-           
-                
                 while(i>=0){
                     A=Character.getNumericValue(valor1.getText().charAt(i));
                     B=Character.getNumericValue(valor2.getText().charAt(i));
                     System.out.println("A:"+A);
                     System.out.println("B:"+B);
-                    S=A-B-R;
+                    System.out.println("R:"+R);
+                    System.out.println("S:"+S);
+                    S=(A-(B+R));
+                    R=0;
                     if(B>A){
-                        while(S!=1){
-                            i--;
-                            A=Character.getNumericValue(valor1.getText().charAt(i));
-                            if(A==1){
-                                A=0;
-                                S=1;
-                            }
-                        }
+                       S=1;
+                       R=1;
                     }
-                    
                     i--;
                     saida.setText(  Integer.toString(S) + saida.getText() );
-                  
+                         
                 }
+                
             System.out.println("SUBTRAÇÃO");
         }
     }//GEN-LAST:event_enterActionPerformed
@@ -178,6 +180,10 @@ public class Janela extends javax.swing.JDialog {
     private void valor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_valor1ActionPerformed
+
+    private void valor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_valor2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valor2ActionPerformed
 
     /**
      * @param args the command line arguments
