@@ -142,12 +142,34 @@ public class Janela extends javax.swing.JDialog {
             if(R!=0){
                 S=R+S;
                  saida.setText(  Integer.toString(S) + saida.getText() );
+                 S=0;
             }
             
             System.out.println("SOMA");
         } else {   
             //SUBTRAÇÃO
+           
+                
                 while(i>=0){
+                    A=Character.getNumericValue(valor1.getText().charAt(i));
+                    B=Character.getNumericValue(valor2.getText().charAt(i));
+                    System.out.println("A:"+A);
+                    System.out.println("B:"+B);
+                    S=A-B-R;
+                    if(B>A){
+                        while(S!=1){
+                            i--;
+                            A=Character.getNumericValue(valor1.getText().charAt(i));
+                            if(A==1){
+                                A=0;
+                                S=1;
+                            }
+                        }
+                    }
+                    
+                    i--;
+                    saida.setText(  Integer.toString(S) + saida.getText() );
+                  
                 }
             System.out.println("SUBTRAÇÃO");
         }
