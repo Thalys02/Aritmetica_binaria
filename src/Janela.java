@@ -168,6 +168,11 @@ public class Janela extends javax.swing.JDialog {
                        S=1;
                        R=1;
                     }
+                    
+                    if(S==-1){
+                        R=1;
+                        S=0;
+                    }
                     i--;
                     saida.setText(  Integer.toString(S) + saida.getText() );
                          
